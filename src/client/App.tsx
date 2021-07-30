@@ -8,7 +8,7 @@ const App = (props: AppProps) => {
 	useEffect(() => {
 		async function getGreeting() {
 			try {
-				const res = await fetch('/api/hello');
+				const res = await fetch('/api/blogs');
 				const greeting = await res.json();
 				setGreeting(greeting);
 			} catch (error) {
@@ -20,7 +20,8 @@ const App = (props: AppProps) => {
 
 	return (
 		<main className="container my-5">
-			<h1 className="text-primary text-center">Hello {greeting}!</h1>
+			<h1 className="text-primary text-center">My Blog </h1>
+			<h2></h2>
 		</main>
 	);
 };
@@ -55,10 +56,10 @@ interface AppProps {}
 // 	}
 // }
 
-// export interface IAppProps {}
+export interface IAppProps {}
 
-// export interface IAppState {
-// 	name: string;
-// }
+export interface IAppState {
+	blogs: Array<{ title: string }>;
+}
 
 export default App;
